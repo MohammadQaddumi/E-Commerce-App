@@ -54,11 +54,15 @@ class _HomeScrollState extends State<HomeScroll> {
             height: Dimensions.pageView,
             child: PageView.builder(
                 controller: pageController,
-                itemCount: (popularProduct.popularProductList.length/6).toInt(),
+                itemCount:
+                    (popularProduct.popularProductList.length / 6).toInt(),
                 itemBuilder: (context, position) {
-                  return popularProduct.isLoaded?_buildPageItem(position, popularProduct.popularProductList[position]):CircularProgressIndicator(
-                    color: AppColors.mainColor,
-                  );
+                  return popularProduct.isLoaded
+                      ? _buildPageItem(
+                          position, popularProduct.popularProductList[position])
+                      : CircularProgressIndicator(
+                          color: AppColors.mainColor,
+                        );
                 }),
           );
         }),
@@ -66,7 +70,9 @@ class _HomeScrollState extends State<HomeScroll> {
         // ignore: unnecessary_new
         GetBuilder<PopularProductController>(builder: (popularProduct) {
           return DotsIndicator(
-            dotsCount: popularProduct.popularProductList.isEmpty?1:(popularProduct.popularProductList.length/6).toInt(),
+            dotsCount: popularProduct.popularProductList.isEmpty
+                ? 1
+                : (popularProduct.popularProductList.length / 6).toInt(),
             position: _currentPageValue,
             decorator: DotsDecorator(
               activeColor: AppColors.mainColor,
@@ -82,7 +88,8 @@ class _HomeScrollState extends State<HomeScroll> {
           height: Dimensions.height30,
         ),
         Container(
-          margin: EdgeInsets.only(left: Dimensions.width30, bottom: Dimensions.height30),
+          margin: EdgeInsets.only(
+              left: Dimensions.width30, bottom: Dimensions.height30),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -110,94 +117,95 @@ class _HomeScrollState extends State<HomeScroll> {
         //workout list
         GetBuilder<PopularProductController>(builder: (popularProduct) {
           return ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: popularProduct.popularProductList.length,
-            itemBuilder: ((context, index) {
-              return GestureDetector(
-                onTap:() {
-                  Get.toNamed(RouteHelper.getRecommendedWorkoutDetails());
-                },
-                child: Container(
-                  margin: EdgeInsets.only(
-                      right: Dimensions.width20,
-                      left: Dimensions.width20,
-                      bottom: Dimensions.height10),
-                  child: Row(
-                    children: [
-                      //image
-                      Container(
-                        width: Dimensions.ListViewImgSize,
-                        height: Dimensions.ListViewImgSize,
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius20),
-                          color: Colors.white24,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage("https://dummyjson.com/image/i/products/9/2.png")),
-                        ),
-                      ),
-                      //text
-                      Expanded(
-                        child: Container(
-                          height: Dimensions.ListViewTextContSize,
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: popularProduct.popularProductList.length,
+              itemBuilder: ((context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Get.toNamed(RouteHelper.getRecommendedWorkoutDetails());
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        right: Dimensions.width20,
+                        left: Dimensions.width20,
+                        bottom: Dimensions.height10),
+                    child: Row(
+                      children: [
+                        //image
+                        Container(
+                          width: Dimensions.ListViewImgSize,
+                          height: Dimensions.ListViewImgSize,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(Dimensions.radius20),
-                                  bottomRight:
-                                      Radius.circular(Dimensions.radius20)),
-                              color: Colors.white24),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: Dimensions.width10,
-                                right: Dimensions.width10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                BigText(text: "Abs Workout by John Hamada"),
-                                SizedBox(
-                                  height: Dimensions.height10,
-                                ),
-                                SmallText(text: "for losing weigh"),
-                                SizedBox(
-                                  height: Dimensions.height10,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    const IconAndTextWidget(
-                                      icon: Icons.circle_sharp,
-                                      text: "Normal",
-                                      iconColor: Colors.amber,
-                                    ),
-                                    const IconAndTextWidget(
-                                      icon: Icons.location_on,
-                                      text: "1.7km",
-                                      iconColor: Colors.blue,
-                                    ),
-                                    const IconAndTextWidget(
-                                      icon: Icons.access_time_rounded,
-                                      text: "32min",
-                                      iconColor: Colors.blue,
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius20),
+                            color: Colors.white24,
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(
+                                    "https://dummyjson.com/image/i/products/9/2.png")),
                           ),
                         ),
-                      )
-                    ],
+                        //text
+                        Expanded(
+                          child: Container(
+                            height: Dimensions.ListViewTextContSize,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                    topRight:
+                                        Radius.circular(Dimensions.radius20),
+                                    bottomRight:
+                                        Radius.circular(Dimensions.radius20)),
+                                color: Colors.white24),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                  left: Dimensions.width10,
+                                  right: Dimensions.width10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  BigText(text: "Abs Workout by John Hamada"),
+                                  SizedBox(
+                                    height: Dimensions.height10,
+                                  ),
+                                  SmallText(text: "for losing weigh"),
+                                  SizedBox(
+                                    height: Dimensions.height10,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    // ignore: prefer_const_literals_to_create_immutables
+                                    children: [
+                                      const IconAndTextWidget(
+                                        icon: Icons.circle_sharp,
+                                        text: "Normal",
+                                        iconColor: Colors.amber,
+                                      ),
+                                      const IconAndTextWidget(
+                                        icon: Icons.location_on,
+                                        text: "1.7km",
+                                        iconColor: Colors.blue,
+                                      ),
+                                      const IconAndTextWidget(
+                                        icon: Icons.access_time_rounded,
+                                        text: "32min",
+                                        iconColor: Colors.blue,
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              );
-            }));
+                );
+              }));
         })
-            
       ],
     );
   }
@@ -234,14 +242,14 @@ class _HomeScrollState extends State<HomeScroll> {
         children: [
           GestureDetector(
             onTap: () {
-                Get.toNamed(RouteHelper.getWorkoutDetails(index));
-              },
+              Get.toNamed(RouteHelper.getWorkoutDetails(index));
+            },
             child: Container(
                 height: Dimensions.pageViewContainer,
                 margin:
                     const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius30),
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
                     image: DecorationImage(
                         image: NetworkImage(popularProduct.thumbnail!),
                         fit: BoxFit.cover))),
@@ -249,7 +257,7 @@ class _HomeScrollState extends State<HomeScroll> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: Dimensions.pageViewTextContainer,
+              height: Dimensions.pageViewTextContainer * 1.1,
               margin: EdgeInsets.only(
                   left: Dimensions.width30,
                   right: Dimensions.width30,
