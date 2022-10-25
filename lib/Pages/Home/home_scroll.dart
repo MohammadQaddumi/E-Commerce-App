@@ -257,7 +257,7 @@ class _HomeScrollState extends State<HomeScroll> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: Dimensions.pageViewTextContainer * 1.1,
+              height: Dimensions.pageViewTextContainer * 1.2,
               margin: EdgeInsets.only(
                   left: Dimensions.width30,
                   right: Dimensions.width30,
