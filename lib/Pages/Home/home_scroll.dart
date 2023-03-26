@@ -1,11 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/Controllers/popular_product_controller.dart';
 import 'package:flutter_application_1/Models/products_model.dart';
-import 'package:flutter_application_1/Pages/Workout/workout_details.dart';
 import 'package:flutter_application_1/Routes/route_helper.dart';
 import 'package:flutter_application_1/Widgets/app_column.dart';
 import 'package:flutter_application_1/Widgets/big_text.dart';
